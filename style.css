@@ -18,7 +18,10 @@ body {
   border-radius: 50%;
   background: linear-gradient(rgb(231, 231, 231), rgb(199, 199, 199));
 }
-#clock #hour-hand, #min-hand, #sec-hand, #pin {
+#clock #hour-hand,
+#min-hand,
+#sec-hand,
+#pin {
   position: absolute;
   bottom: 50%;
   left: 50%;
@@ -30,17 +33,15 @@ body {
   position: absolute;
   width: 2px;
   height: 100%;
-  top: 0; /* Resets the 'bottom: 50%' from '#clock div' */
+  top: 0;
   left: 50%;
-  /* We use center because the div is 100% height; it rotates like a propeller */
   transform-origin: center;
   transform: translateX(-50%) rotate(calc(var(--i) * 30deg));
 }
-
 .mark::before {
   content: "";
   position: absolute;
-  top: 5px; /* Gap from the outer border */
+  top: 5px;
   left: 50%;
   transform: translateX(-50%);
   width: 4px;
@@ -48,15 +49,13 @@ body {
   background: black;
   border-radius: 2px;
 }
-
-/* Make 12, 3, 6, and 9 thicker/longer */
 .mark:nth-child(3n)::before {
   width: 6px;
   height: 20px;
   background: #000;
 }
 #hour-hand {
-  width: 2.5%; /* Thinner is usually better for scaling */
+  width: 2.5%;
   height: 25%;
   background: black;
   z-index: 3;
@@ -81,4 +80,26 @@ body {
   border-radius: 50% !important;
   transform: translate(-50%, 50%) !important;
   z-index: 10;
+}
+.number {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px; 
+  height: 100%;
+  transform: translateX(-50%) rotate(calc(var(--i) * 30deg)) !important;
+  transform-origin: center !important;
+  display: block !important;
+  bottom: 0 !important;
+}
+.number span {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%) rotate(calc(var(--i) * -30deg)); 
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  white-space: nowrap;
 }
